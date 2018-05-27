@@ -1,0 +1,26 @@
+﻿Load sos (if not loaded):
+.loadby sos clr
+
+Add breakpoint by method name:
+!bpmd WindbgDemo.exe WindbgDemo.BreakpointsDemo.Run
+
+Add breakpoint by file and line:
+!bpmd BreakpointsDemo.cs:14
+
+Show current stack trace:
+!ClrStack -i -a
+!DumpStack -EE
+
+Show object details:
+!do #address#
+
+Show struct details:
+!dumpvc #method table# #value#
+
+Show heap details:
+!dumpheap -stat
+!dumpheap -type Person
+!dumpheap -mt #method table#
+
+Find roots:
+!gcroot #address#
