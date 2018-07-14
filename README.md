@@ -32,8 +32,10 @@ For example, if your local symbols cache is in C:\Symbols and the demo app pdb f
 
 ### Exercise 1 - Breakpoints
 This exercise will show you how to setup breakpoints.
+
 The demo code will perform a loop and throw an exception if the index of the loop is 84.
 
+Steps:
 - Press "Break" in the Windbg menu (if not already pressed)
 - Enter the following command to set a breakpoint in the start of the Run method:
 ```
