@@ -46,7 +46,7 @@ Steps:
 !bpmd BreakpointsDemo.cs:14
 ```
 - Press "Go" in the Windbg menu
-- In the demo app, select the first option (enter 1)
+- In the demo app, select the "Setup breakpoints" option (enter 1)
 - Windbg should stop at the first breakpoint we set
 - Enter the following command to see the stack trace:
 ```
@@ -75,7 +75,7 @@ and will have a ArgumentNullException due to an unitialized property value.
 
 Steps:
 - Press "Go" in the Windbg menu
-- In the demo app, select the second option (enter 2)
+- In the demo app, select the "Examine objects" option (enter 2)
 - Windbg should stop because we threw a null reference exception
 - Enter the following command to see the exception details:
 ```
@@ -120,3 +120,60 @@ This is because Name is a value type (struct) instead of a reference type (class
 !dumpvc 01405038 030253d0
 ```
 - Try to see the values of the First and Last properties of the name using the !do command
+
+### Exercise 3 - Examine the heap
+This exercise will show you how to examine the heap and find potential memory leaks.
+
+The demo code will create 2 new Person instances, one of which will be added to a static collection (a memory leak).
+
+Steps:
+- Press "Go" in the Windbg menu
+- In the demo app, select the "Examine heap" option (enter 3)
+- In the demo app, select the "Examine heap" option (enter 3) again
+- Press "Break" in the Windbg menu
+- Enter the following command to see the statistics of objects in the heap:
+```
+!dumpheap -stat
+```
+- Enter the following command to find all instances of type Person (case sensitive):
+```
+!dumpheap -type Person
+```
+- Find the row that contains the Person instances:
+```
+      MT    Count    TotalSize Class Name
+...
+017b6424        4           96 WindbgDemo.Person
+```
+- Enter the following command to show all instances of Person (MT is like a Type)
+```
+!dumpheap -mt 017b6424
+```
+- Note that we found 4 instances
+- Press "Go" in the Windbg menu
+- In the demo app, select the "Perform GC" option (enter 4)
+- This will release the memory and clear instances not in use any more
+- Press "Break" in the Windbg menu
+- Enter the following command to show all instances of Person again:
+```
+!dumpheap -mt 017b6424
+```
+- Note that we found 2 instances of Person (this is a memory leak):
+```
+ Address       MT     Size
+033b5448 017b6424       24
+033b5a0c 017b6424       24
+```
+- Enter the following command to find the root that holds one of these instances (by address):
+```
+!gcroot 033b5448
+```
+- Note that we found that a Hashset contains the instance:
+```
+HandleTable:
+    011c13ec (pinned handle)
+    -> 043b3528 System.Object[]
+    -> 033b52ec System.Collections.Generic.HashSet`1[[WindbgDemo.Person, WindbgDemo]]
+    -> 033b5478 System.Collections.Generic.HashSet`1+Slot[[WindbgDemo.Person, WindbgDemo]][]
+    -> 033b5448 WindbgDemo.Person
+```
