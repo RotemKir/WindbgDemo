@@ -135,7 +135,7 @@ Steps:
 ```
 !dumpheap -stat
 ```
-- Enter the following command to find all instances of type Person (case sensitive):
+- Enter the following command to find all instances whose name contains 'Person' (case sensitive):
 ```
 !dumpheap -type Person
 ```
@@ -177,3 +177,20 @@ HandleTable:
     -> 033b5478 System.Collections.Generic.HashSet`1+Slot[[WindbgDemo.Person, WindbgDemo]][]
     -> 033b5448 WindbgDemo.Person
 ```
+---
+## Summary
+
+| Command | Description |
+| --- | --- |
+| .loadby sos clr  | Load the SOS extension  |
+| !bpmd WindbgDemo.exe WindbgDemo.BreakpointsDemo.Run | Set a breakpoint by module (assembly) and method name |
+| !bpmd BreakpointsDemo.cs:14 | Set a breakpoint by file name and line |
+| !ClrStack -i -a | Show stack trace, including parameters and local values |
+| !pe | Show current exception details |
+| !do _address_ | Show object instance details by address |
+| !dumpvc _method table_ _address_ | Show value type details by method table and address |
+| !dumpheap -stat | Show a summary of the heap contents |
+| !dumpheap -type _type name_ | Show a summary of the items in the heap that contain the name (case sensitive) |
+| !dumpheap -mt _method table_ | Show a summary of the items in the heap by method table |
+| !gcroot | Show which instances hold a reference to the object |
+| groot | I am |
