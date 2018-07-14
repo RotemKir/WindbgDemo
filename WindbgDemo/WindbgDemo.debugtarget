@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TargetConfig Name="C:\Users\Rotem\Source\Repos\WindbgDemo\WindbgDemo\bin\Debug\WindbgDemo.exe" LastUsed="2018-05-20T19:09:35.2171695Z">
+  <EngineConfig />
+  <EngineOptions>
+    <Property name="FinalBreak" value="true" />
+    <Property name="SourceDebugging" value="true" />
+    <Property name="DebugChildProcesses" value="false" />
+    <Property name="Noninvasive" value="false" />
+    <Property name="NoDebugHeap" value="false" />
+    <Property name="Verbose" value="false" />
+    <Property name="SymbolOptionsOverride" value="0" />
+    <Property name="ShouldOverrideSymbolOptions" value="false" />
+    <Property name="SymOptExactSymbols" value="false" />
+    <Property name="SymOptFailCriticalErrors" value="false" />
+    <Property name="SymOptIgnoreCvRec" value="false" />
+    <Property name="SymOptIgnoreNtSympath" value="false" />
+    <Property name="SymOptNoCpp" value="false" />
+    <Property name="SymOptNoUnqualifiedLoads" value="false" />
+    <Property name="SymOptAutoPublics" value="false" />
+    <Property name="SymOptDebug" value="false" />
+    <Property name="Elevate" value="false" />
+    <Property name="SymPath" value="srv*c:\MySymbols*https://msdl.microsoft.com/download/symbols;C:\Users\Rotem\Source\Repos\WindbgDemo\WindbgDemo\bin\Debug" />
+    <Property name="SrcPath" value="" />
+    <Property name="Restartable" value="true" />
+    <Property name="UseImplicitCommandLine" value="false" />
+    <Property name="EngineBitness" value="AutoDetect" />
+  </EngineOptions>
+  <TargetOptions>
+    <Option name="LaunchProcess">
+      <Property name="Executable" value="C:\Users\Rotem\Source\Repos\WindbgDemo\WindbgDemo\bin\Debug\WindbgDemo.exe" />
+      <Property name="Arguments" value="" />
+    </Option>
+  </TargetOptions>
+</TargetConfig>
