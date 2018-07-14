@@ -29,7 +29,7 @@ For example, if your local symbols cache is in C:\Symbols and the demo app pdb f
 .sympath srv*C:\Symbols*https://msdl.microsoft.com/download/symbols
 .sympath+ C:\WindbgDemo\bin\debug
 ```
-
+---
 ### Exercise 1 - Breakpoints
 This exercise will show you how to setup breakpoints.
 
@@ -66,7 +66,7 @@ Steps:
 !pe
 ```
 - Note that we can see the exception type, message and stack trace
-
+---
 ### Exercise 2 - Examine objects in memory
 This exercise will show you how to examine the data of objects in memory.
 
@@ -120,7 +120,7 @@ This is because Name is a value type (struct) instead of a reference type (class
 !dumpvc 01405038 030253d0
 ```
 - Try to see the values of the First and Last properties of the name using the !do command
-
+---
 ### Exercise 3 - Examine the heap
 This exercise will show you how to examine the heap and find potential memory leaks.
 
